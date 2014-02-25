@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.xiaoli.domain">
+<class name="Users" lazy="false">
+<id name="user_id" type="java.lang.Integer">
+<generator class="sequence">
+<param name="sequence">user_seq</param>
+</generator>
+</id>
+<property name="user_name" type="java.lang.String">
+<column name="user_name" length="64"/>
+</property>
+<property name="user_passwd" type="java.lang.String">
+<column name="user_passwd" length="64"/>
+</property>
+
+<!-- sendedMessages属性 
+<list name="sendedMessages" >
+
+<key column="sender_id"/>
+<one-to-many class="Message"/>
+</list>-->
+<set name="sendedMessages" lazy="false">
+<key column="sender_id"/>
+<one-to-many class="Message"/>
+</set>
+<!-- gotMessages属性 -->
+<set name="gotMessages" lazy="false">
+<key column="getter_id"/>
+<one-to-many class="Message"/>
+</set>
+</class>
+</hibernate-mapping>

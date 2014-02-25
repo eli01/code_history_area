@@ -1,0 +1,35 @@
+--用PLSQL编写一个程序，实现按系号分段（60000以上，（6000,3000），3000元以下）统计各工资段的教师人数，以及各系的工资总额（工资总额中不包括奖金）。
+declare
+cursor c1 is select distinct deptno from teacher order by deptno;
+cursor c2 is select deptno,sal from teacher order by deptno;
+t_num1 number;
+t_num2 number;
+t_num3 number;
+sum_sal number;
+v_deptno teacher.deptno%type;
+v_sal teacher.sal%type;
+begin
+  open c2;
+  fetch c2 into v_deptno,v_sal;
+  for r1 in c1
+    loop 
+      t_num1:=0;
+      t_num2:=0;
+      t_num3:=0;
+      sum_sal:=0;
+      while r1.deptno=v_deptno
+        loop
+          sun_sal:=sum_sal+v_sal;
+          if v_sal<3000 then t_num1:=t_num1+1;
+          elsif v_sal<6000 and v_sal>=3000 then
+          t_num2:=t_num2+1;
+          else t_num3:=t_num3+1;
+          end if;
+          fetch c2 into v_deptno,v_sal;
+          exit when c2%not found;
+          end loop;
+          insert into msg1 values(r1.deptno,t_num1,t_num2,t_num3,sum_sal);
+          end loop;
+          commit;
+          end;
+          /

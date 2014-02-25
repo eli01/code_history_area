@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!--配置被代理的对象 -->
+<bean id="testService1" class="com.aop_14.TestService1">
+<property name="name" value="孕妇"/>
+</bean>
+
+<!-- 配置前置通知 -->
+<bean id="myMethodBeforeAdvice" class="com.aop_14.MyMethodBeforeAdvice"/>
+<!-- 配置后置通知 -->
+<bean id="myAfterReturningAdvice" class="com.aop_14.MyAfterReturningAdvice"/>
+<!-- 配置环绕通知 -->
+<bean id="myMethodInterceptor" class="com.aop_14.MyMethodInterceptor"/>
+<!-- 配置异常通知 -->
+<bean id="myThrowAdvice" class="com.aop_14.MyThrowAdvice"/>
+<!-- 定义前置通知的切入点 -->	
+<bean id="myMethodBeforeAdviceFilter" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+<property name="advice" ref="myMethodBeforeAdvice"/><!-- 指定需要过滤的通知 -->
+<property name="mappedNames">
+	<list>
+		<value>sayhello</value><!-- 指定切入点，可以使用正则表达式 -->
+	</list>
+</property>
+</bean>
+<!--配置代理对象  -->
+<bean id="proxyFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean">
+	<!-- 配置代理的接口集 -->
+	<property name="proxyInterfaces">
+	<list>
+		<value>com.aop_14.TestServiceInter</value>
+		<value>com.aop_14.TestServiceInter2</value>		
+	</list>
+	</property>
+	<!-- 把通知织入到代理对象 -->
+	<property name="interceptorNames">
+		<!-- 相当于把前置通知和代理对象关联，我噩梦也可以把通知看作拦截器，struts得核心连接器 -->
+		<list>
+		<value>myMethodBeforeAdviceFilter</value><!-- 织入前置通知的过滤 -->
+		<!-- <value>myMethodBeforeAdvice</value>织入前置通知 -->
+		<value>myAfterReturningAdvice</value><!-- 织入后置通知 -->
+		<value>myMethodInterceptor</value><!-- 织入环绕通知 -->
+		<value>myThrowAdvice</value><!-- 织入异常通知 -->
+		</list>
+		
+	</property>
+	<!-- 配置被代理对象 ，可以指定-->
+	<property name="target" ref="testService1"/>
+</bean>
+</beans>

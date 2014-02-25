@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="StrutsUserManager"
+  id="myeclipse.1373961734149"
+  context-root="/StrutsUserManager"
+  j2ee-spec="6.0"
+  archive="StrutsUserManager.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

@@ -1,0 +1,8 @@
+select to_char(last_day(sysdate),'yyyy-mm-dd') from dual; ----显示本月最后一天的日期
+
+select months_between(to_date('1990-10-12','yyyy-mm-dd'),to_date('1992-10-12','yyyy-mm-dd')) from dual; ------查看两个日期之间相差的月
+
+select next_day(sysdate,'星期六')from dual;----返回离system最近的星期六是几号
+
+select convert('你','we8hp','f7dec') "conversion" from dual;   ---字符集转换
+                               --

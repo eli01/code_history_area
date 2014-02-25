@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+<!-- hibernate设计者为为我们提供了常用配置 -->
+	<!-- 配置实用的driver -->
+	<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+	<property name="connection.username">root</property>
+	<property name="connection.password">truman</property>
+	<property name="connection.url"> jdbc:mysql:///hibernatehsp</property>
+	<!-- 配置dialect方言，明确告诉hibernate链接连接的是那种数据库 -->
+	<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+	<!-- 添加显示sql的配置 -->
+	<property name="show_sql">true</property>
+	<!-- 显示更加漂亮的sql -->
+	<property name="format_sql">true</property>
+<!-- 	<property name="current_session_context_class">thread</property> -->
+	<!-- 让hibernate自动创建表 create表示如果没有该表就创建一个,有表舅删除重新创建-->
+	<!-- update表示如果有这个表且表的结构没有变化，就不创建 -->
+	<property name="hbm2ddl.auto">update</property>
+	<!-- 指定管理的对象映射文件 -->
+	<mapping resource="com/nemo/domain/Employee.hbm.xml"/>
+</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping package="com.nemo.domain">
+	<class name="IDCard" table="idcard">
+	<id name="id" type="java.lang.Integer">
+	<!-- 这里是基于主键的一对一，所以我们使用外键的生成策略 -->
+	<generator class="foreign">
+	<!-- 跟那个属性一对一 -->
+	<param name="property">person</param>
+	</generator>
+	</id>
+	<property name="validDate" type="java.util.Date">
+	<column name="validDate"/>
+	</property>
+	<!-- 这里配置 person和idCard属性的关系是一对一 -->
+	<one-to-one name="person" constrained="true"/>
+	</class>
+	</hibernate-mapping>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+<bean id="department" class="com.collection.Department">
+<property name="name" value="财务部"/>
+<!-- 给数组注入值 -->
+<property name="empName">
+	<list>
+	<value>孔子</value>
+	<value>老子</value>
+	<value>孟子</value>
+	</list>
+</property>
+
+<!-- 给list注入值 -->
+<property name="empList">
+	<list><!-- 这里是有顺序的 -->
+	<ref bean="emp1"/>
+	<ref bean="emp2"/>
+	<ref bean="emp2"/>
+	<ref bean="emp2"/>
+	<ref bean="emp2"/>
+	</list>
+</property>
+
+<!-- 给set注入值  相同对象会合并-->
+<property name="empSet">
+	<set>
+	<ref bean="emp1"/>
+	<ref bean="emp2"/>
+	<ref bean="emp2"/>
+	<ref bean="emp2"/>
+	<ref bean="emp2"/>
+	</set>
+</property>
+<!-- 给map注入值  只要key不一样，就算对象相同也都会存储-->
+<property name="empMap">
+	<map>
+	<!-- key:基本数据类型  ref:引用另外一个在容器中配置的bean
+	key相同的话后这回覆盖前者 -->
+	<entry key="1" value-ref="emp1"/>
+	<entry key="2" value-ref="emp2"/>
+	<entry key="3" value-ref="emp2"/>
+	</map>
+</property>
+<!-- 给属性集合配置注入 -->
+<property name="pp">
+	<props>
+	<prop key="pp1">abcd</prop>
+	<prop key="pp2">abcd</prop>
+	<prop key="pp3">abcd</prop>
+	</props>
+</property>
+</bean>
+<!-- 第一个给雇员bean -->
+<bean id="emp1" class="com.collection.Employee">
+<property name="name" value="小张"/>
+<property name="id" value="1"/>
+</bean>
+<!-- 第二个雇员bean -->
+<bean id="emp2" class="com.collection.Employee">
+<property name="name" value="小丽"/>
+<property name="id" value="2"/>
+</bean>
+</beans>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="EditTable"
+  id="myeclipse.1375500585527"
+  context-root="/EditTable"
+  j2ee-spec="6.0"
+  archive="EditTable.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

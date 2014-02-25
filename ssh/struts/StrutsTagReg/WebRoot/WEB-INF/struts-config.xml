@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+  <form-beans >
+    <form-bean name="userForm" type="com.yourcompany.web.struts.form.UserForm" />
+
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards />
+  <action-mappings >
+    <action
+      attribute="userForm"
+      input="/WEB-INF/Reg.jsp"
+      name="userForm"
+      path="/reg"
+      scope="request"
+      type="com.yourcompany.web.struts.action.RegAction"
+      validate="false"
+      cancellable="true" >
+      <forward name="ok" path="/WEB-INF/ok.jsp" />
+      <forward name="err" path="/WEB-INF/Reg.jsp" />
+      <forward name="attention" path="/WEB-INF/attention.jsp" />
+    </action>
+
+
+  </action-mappings>
+
+  <message-resources parameter="com.yourcompany.web.struts.ApplicationResources" />
+</struts-config>
+

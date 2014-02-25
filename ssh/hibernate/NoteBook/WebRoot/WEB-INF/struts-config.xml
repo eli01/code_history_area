@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+  <form-beans >
+    <form-bean name="userForm" type="com.xiaoli.struts.form.UserForm" />
+    <form-bean name="messageForm" type="com.xiaoli.struts.form.MessageForm" />
+
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards >
+    <forward name="ok" path="/WEB-INF/ok.jsp" />
+
+  </global-forwards>
+
+  <action-mappings >
+    <action
+      attribute="userForm"
+      input="/WEB-INF/login.jsp"
+      name="userForm"
+      parameter="flag"
+      path="/login"
+      scope="request"
+      type="com.xiaoli.struts.action.LoginAction"
+      validate="false"
+      cancellable="true" >
+      <forward name="loginok" path="/goMessage.do" />
+      <forward name="goLoginUi" path="/WEB-INF/login.jsp" />
+    </action>
+
+    <action
+      input="/WEB-INF/ok.jsp"
+      parameter="flag"
+      path="/goMessage"
+      type="com.xiaoli.struts.action.GoMessageAction"
+      validate="false"
+      cancellable="true">
+      <forward name="goMessageUi" path="/WEB-INF/showMessage.jsp" />
+    </action>
+    <action
+      attribute="messageForm"
+      input="/WEB-INF/publishMessage.jsp"
+      name="messageForm"
+      parameter="flag"
+      path="/goPublishMessageUi"
+      scope="request"
+      type="com.xiaoli.struts.action.GoPublishMessageUiAction"
+      validate="false"
+      cancellable="true">
+      <forward name="goPublishMessageUi" path="/WEB-INF/publishMessage.jsp" />
+    </action>
+
+
+
+  </action-mappings>
+
+  <message-resources parameter="com.xiaoli.struts.ApplicationResources" />
+</struts-config>
+

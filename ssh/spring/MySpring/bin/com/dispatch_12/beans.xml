@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+<!-- 配置DBUtil象 -->
+<!-- 第一种注入方式 -->
+<!-- <bean id="dbutil" class="com.dispatch_12.DBUtil"> -->
+<!-- 	<property name="name" value="scott"/> -->
+<!-- 	<property name="driverName" value="oracle.jdbc.driver.OracleDriver"/> -->
+<!-- 	<property name="pwd" value="truman"/> -->
+<!-- 	<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:orcl"/> -->
+<!-- </bean> -->
+<!-- 第二种注入方式 -->
+<!-- 引入 dbInfo.properties-->
+<context:property-placeholder location="classpath:com/dispatch_12/dbInfo.properties"/>
+<bean id="dbutil" class="com.dispatch_12.DBUtil">
+	<property name="name" value="${username}"/>
+	<property name="driverName" value="${driver}"/>
+	<property name="pwd" value="${password}"/>
+	<property name="url" value="${url}"/>
+</bean>
+</beans>

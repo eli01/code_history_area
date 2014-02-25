@@ -1,0 +1,30 @@
+.head1{
+	height:101px;
+	width:1000px;
+	background-color:#385889;
+	margin:0 auto;
+}
+
+.head1 .img1{
+	width:713px;
+	float:left;
+}
+.head1 .img2{
+	float:left;
+	width:280px;
+	margin-left:6px;
+}
+.navi1{
+	float:right;
+	list-style: none;
+	margin:0;
+}
+.navi1 li{
+	float:left;
+	color:#C3CDDF;
+	font-size:12px;
+	height:33px;
+	width:55px;
+	line-height: 33px;
+	text-align: center;
+}

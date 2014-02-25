@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!-- 在容器文件中配置bean(service/domain/dao/action/数据源) -->
+<!-- bean元素的作用：当spring框架被加载的时候，spring会自动创建一个bean对象
+UserService userService=new UserService(); 
+userService.setName("韩顺平");-->
+
+<bean id="userService" class="com.service.UserService"> 
+	<property name="name">
+	<value>韩顺平</value>
+	</property>
+	<!-- 引用BybService bean -->
+	<property name="bybService" ref="bybService"/>
+</bean>
+<bean id="bybService" class="com.service.BybService">
+<property name="name" value="Peter"/>
+</bean>
+</beans>

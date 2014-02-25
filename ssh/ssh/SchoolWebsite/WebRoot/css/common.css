@@ -1,0 +1,33 @@
+body{
+	font-size:12px;
+	margin:0;	
+}
+*{
+	padding:0px;
+}
+
+/*定义一下常用的超链接样式*/
+/*对连接的一般处理方法*/
+a.anavi:link,a.anavi:visited,a.anavi:hover,a.anavi:active {
+	color:#C3CDDF;
+	text-decoration: none;
+}
+/*通用的lini*/
+
+a:link,a:visited,a:active {
+	color:#3B5888;
+	text-decoration: none;
+}
+a:hover{
+	color: #3B5888;
+	text-decoration: underline;
+}
+/*定义常用的字体*/
+.font1{
+	color:#3B5888;
+}
+.font2{
+	font-size:16px;
+	font-weight:bold;
+	
+}

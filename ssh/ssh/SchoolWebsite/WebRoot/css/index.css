@@ -1,0 +1,39 @@
+.main{
+	width:1000px;
+	height:700px;
+	margin:0 auto;
+}
+/*左边 用户、追册、登录*/
+.reg_log{ 
+	float:left;
+	width:200px;
+	height:700px;
+	background-color:green;p
+}
+.banner1{
+	margin-left:5px;
+	text-align:5px;
+	width:795px;
+	float:left;
+}
+.banner1 img{
+	margin-left:30px;
+	height:306px;
+	width:719px;
+}
+.intro{
+	margin-left:5px;
+	float:left;
+}
+/*控制介绍内容行高*/
+.intro li{
+	line-height:20px;
+}
+/*注册的第二入口*/
+.reg2{
+	margin-right:50px;
+	margin-top:20px;
+	float:right;
+	width:150px;
+	text-align:center;
+}

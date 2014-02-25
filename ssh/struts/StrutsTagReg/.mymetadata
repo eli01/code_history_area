@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="StrutsTagReg"
+  id="myeclipse.1373886444533"
+  context-root="/StrutsTagReg"
+  j2ee-spec="6.0"
+  archive="StrutsTagReg.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/login.do" location="315,150" dimension="244,96" />
+  <StrutsActivity path="/goMessage.do" location="675,30" dimension="282,96" />
+  <StrutsActivity path="/goPublishMessageUi.do" location="600,405" dimension="335,96" />
+  <StrutsActivity path="/WEB-INF/login.jsp" location="75,150" dimension="150,100" />
+  <StrutsActivity path="/WEB-INF/showMessage.jsp" location="660,240" dimension="150,100" />
+  <StrutsActivity path="/WEB-INF/publishMessage.jsp" location="150,375" dimension="150,100" />
+  <StrutsActivity path="/WEB-INF/ok.jsp" location="435,15" dimension="150,100" />
+  <StrutsActivity path="ok;6" location="150,15" dimension="150,100" />
+  <StrutsTransition id="/WEB-INF/showMessage.jsp,null,/goPublishMessageUi.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="767,340" />
+      <AbsolutePoint location="767,405" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/goPublishMessageUi.do,goPublishMessageUi,/WEB-INF/publishMessage.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="600,425" />
+      <AbsolutePoint location="300,425" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/publishMessage.jsp,null,/goPublishMessageUi.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="300,455" />
+      <AbsolutePoint location="600,455" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/ok.jsp,null,/goMessage.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="585,78" />
+      <AbsolutePoint location="675,78" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/login.jsp,null,/login.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="225,198" />
+      <AbsolutePoint location="315,198" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/goMessage.do,goMessageUi,/WEB-INF/showMessage.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="735,126" />
+      <AbsolutePoint location="735,240" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/login.do,goLoginUi,/WEB-INF/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="315,168" />
+      <AbsolutePoint location="225,168" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/login.do,loginok,/goMessage.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="559,198" />
+      <AbsolutePoint location="825,198" />
+      <AbsolutePoint location="825,126" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="ok;6,null,/WEB-INF/ok.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="300,65" />
+      <AbsolutePoint location="435,65" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/WEB-INF/showMessage.jsp,null,/goPublishMessageUi.do,0" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="767,340" />
+      <AbsolutePoint location="767,405" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+

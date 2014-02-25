@@ -1,0 +1,16 @@
+.foot{
+	width:1000px;
+	margin:0 auto;
+	background-color: pink;
+	height:80px;
+}
+.navi2{
+	float:right;
+}
+.navi2 li{
+	display: inline-block;
+	
+}
+.font1{
+	color:#3B5888;
+}

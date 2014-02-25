@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+<!-- 
+id="personService":表示将来上下文获取com.beanlife.PersonService路径的bean实例是使用的id号
+class="com.beanlife.PersonService"：com.beanlife.PersonService.java的路径
+scope="singleton"：该bean的创建模式为单态的
+init-method="init"：初始化该beanm实例时自定义调用的方法名
+ -->
+<bean destroy-method="mydestroy" id="personService" class="com.beanlife.PersonService" scope="singleton" init-method="init">
+<!-- 注入属性值，前提就是有setName（）方法 -->
+<property name="name" value="Harry Potter"/>
+<property name="age" value="10"/>
+</bean>
+<!-- 配置我们自己的后置处理器 -->
+<bean id="myBeanPostProcessor" class="com.beanlife.MyBeanPostProcessor"/>
+</beans>

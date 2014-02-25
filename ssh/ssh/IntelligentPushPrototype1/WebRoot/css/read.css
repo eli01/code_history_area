@@ -1,0 +1,71 @@
+/**
+时间：2013、8、4
+作者：孟庆申
+功能：为Read.jsp提供样式表
+*/
+/*清除浏览器的默认设置*/
+ul,li{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+/*设置标签的样式*/
+.maintable li{
+	background-color: #868686;
+	color:white;
+	padding:5px;
+	margin-bottom:2px;
+	border:1px solid white;
+	cursor:pointer;
+}
+/*被选中标签的样式*/
+.maintable  li.tabin{
+	border:3px solid #6E6E6E;
+	background-color:#6E6E6E;
+}
+
+
+/*设置整个窗体的位置大小*/
+body{
+	margin:0px auto;
+	width:80%;
+	min-height:1200px;
+	margin-top:30px;
+}
+
+/**/
+.maintable{
+	float:left;
+}
+
+/*设置内容区的样式*/
+.content{
+	position:relative;
+	left:-3px;
+	bottom:-2px;
+	float:left;
+	background-color:#6E6E6E;
+
+}
+.newshead{	
+	text-align:center;
+	margin:0 auto;
+	height:30px;
+	width:300px;
+	background-color:white;
+	cursor:pointer;
+	background-image:url(../images/down.png);
+	background-repeat: no-repeat;
+}
+/*展开前新闻的属性*/
+.newsbody{
+	background-color:#6E6E6E;
+	height:60px;
+	width:600px;
+}
+/*展开后的属性*/
+.fullpage{
+	background-color:#6E6E6E;
+	width:600px;
+	height:200px;
+}

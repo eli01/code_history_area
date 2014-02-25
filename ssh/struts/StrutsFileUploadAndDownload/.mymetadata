@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="StrutsFileUploadAndDownload"
+  id="myeclipse.1374111459840"
+  context-root="/StrutsFileUploadAndDownload"
+  j2ee-spec="6.0"
+  archive="StrutsFileUploadAndDownload.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

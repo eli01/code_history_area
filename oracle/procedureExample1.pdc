@@ -1,0 +1,95 @@
+--编写一个过程，可以输入一个雇员编号，如果该雇员的职位是
+--president,就给他的工资增加1000，如果该雇员的职位是manager
+--就给他的工资增加200
+create or replace procedure pro1(v_in_empno number)is
+--定义职位变量
+v_job emp.job%type;
+begin
+  select job into v_job from emp where empno=v_in_empno;
+  if v_job='PRESIDENT' then
+    update emp set sal=sal+1000 where empno=v_in_empno;
+    elsif v_job='MANAGER' then
+    update emp set sal=sal+500 where empno =v_in_empno;
+    else
+     update emp set sal=sal+200 where empno=v_in_empno;
+  end if;
+ end;
+ 
+ 
+ --编写一个过程，可输入用户名和添加用户的个数n;
+ --循环添加n个用户到users表中，用户编号从1增加，知道n
+ create table users(
+ id number primary key,
+ name varchar2(32)
+ );
+ 
+ --过程
+ create or replace procedure pro1(v_in_ename varchar2,n number) is
+ --定义需要的变量
+ v_empno number:=1;
+ begin 
+   loop
+   --执行添加任务
+   insert into users values(v_empno,v_in_ename);
+   exit when v_empno=n;
+   v_empno:=v_empno+1;
+   end loop;  
+ end;
+
+--使用while循环完成
+create or replace procedure pro1(v_in_ename varchar2,v_in_n number) is
+v_empno number:=11;
+begin
+  while  v_empno<=11+v_in_n-1  loop
+  insert into users values(v_empno ,v_in_ename);
+  v_empno:=v_empno+1;
+  end loop;
+end;
+
+create or replace procedure pro1(v_in_empno in number,v_out_ename out varchar2) is
+--v_out_ename out varchar2:表示该变量用于输出
+begin
+  select ename into v_out_ename from emp where empno=v_in_empno;
+end;
+
+--或者
+create or replace procedure pro1(v_in_empno in number,v_out_ename out varchar2) as
+--v_out_ename out varchar2:表示该变量用于输出
+begin
+  select ename into v_out_ename from emp where empno=v_in_empno;
+end pro1;
+
+--案例：编写一个过程，输入部门号，返回该部门所有雇员信息
+--1.创建一个包，该包定义一个游标类型
+create or replace package pack1 is
+--定义一个游标数据类型
+type my_cursor is ref cursor;
+end;
+--2.编写这个过程
+create or replace proecdure pro1(v_in_deptno in number,v_out_resule out pack1.my_cursor) is
+begin
+open v_out_result for select * from emp where deptno=v_in_deptno;
+--为了让java程序食用游标，关闭应在java代码中出现
+--close v_out_result;  
+end;
+
+
+--完成粉冶存储过程
+--要求，编写一个存储过程，要求可以输入表名、每页显示记录数，当前页
+--返回结果集
+
+--建包，使用游标类型
+--如果你有这个有这个游标数据类型，则可以使用
+create or replace package pack1 is
+--定义一个游标数据类型
+type my_cursor is ref cursor;
+end;
+
+--编写过程
+create or replace procedure fenyePro(v_in_table in varchar2,v_in_pagesize in number,v_in_pagenow in number,v_out_result out pack1.my_cursor) is
+--定义变量
+v_sql
+begin
+
+end;
+
